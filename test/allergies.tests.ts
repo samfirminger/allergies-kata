@@ -69,7 +69,12 @@ describe('list', () => {
         ]
         expect(allergies.list()).toEqual(expected)
     })
-    it('ignore non allergen score parts', () => {
+    it('return an empty list when passing an unknown allergen', () => {
+        const allergies = new Allergies(256)
+        const expected = []
+        expect(allergies.list()).toEqual(expected)
+    })
+    it('ignore unknown allergen score parts', () => {
         const allergies = new Allergies(509)
         const expected = [
             'eggs',
